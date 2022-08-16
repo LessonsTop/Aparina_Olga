@@ -1,0 +1,62 @@
+Задание: 
+
+1 Создать список из чисел и имен, а также перебрать список в цикле и отделить текст от чисел и вывести текст на экран и создать новый список состоящий только из текста, числа сложить с 10 и также вывести на экран и создать список состоящий только из чисел. Список должен содержать не менее 15 объектов
+
+
+
+list = [1, 2, 3, "Olga", "Slava", "Misha"]
+listName = [str(element) for element in list if type(element) is str]
+print(listName)
+listNumber = [int(element) for element in list if type(element) is int]
+print(listNumber)
+
+
+list = [1, 2, 3, "Olga", "Slava", "Misha", "Kirill"]
+listName = [str(element) for element in list if type(element) is str]
+print(listName)
+listNumber = [int(element) + 10 for element in list if type(element) is int]
+print(listNumber)
+
+
+list = [1, 2, 3, 56, 58, 23, 45, 96, 75, 89, 20, 14, 36, 89, 47, 21]
+listNumber = [int(element) for element in list if type(element) is int]
+print(listNumber)
+
+
+
+2 Создать словарь игрового персонажа который будет иметь следующие свойства: имя, кол-во жизней, кол-во маны, силу, ловкость, выносливость, физическую стойкость, магическую стойкость. 
+Распечатать словарь по ключу применяя читаемый текст
+
+
+dict = {"Имя" : "Темный эльф", "Количество жизней" : 8, "Количество маны" : 16, "Cила" : 57, "Ловкость" : 52, "Выносливость" : 30, "Физическая стойкость" : 40, "Магическая стойкость" : 100}
+for key,state in dict.items():
+    print(key, ':', state)
+
+
+
+
+
+3 Написать программу которая будет принимать на вход string и конвертировать str в int. Затем описать короткую программу вычисления двух чисел, при которой арифметический знак также должен вводиться с клавиатуры.
+
+
+while True:
+    number1 = input('Введите первое число: ')
+    number2 = int(number1)
+    number3 = input('Введите второе число: ')
+    number4 = int(number3)
+    a = input("Выберите  математическое дейстивие: \n ")
+    if a == '+':
+        result = number2 + number4
+        print("Ответ: ", result)
+    elif a == '-':
+        result = number2 - number4
+        print("Ответ: ", result)
+    elif a == '*':
+        result = number2 * number4
+        print("Ответ: ", result)
+    elif a == '/':
+        result = number2 / number4
+        print("Ответ: ", result)
+    else:
+        print("Неверно указано действие")
+    break
