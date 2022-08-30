@@ -1,0 +1,63 @@
+Задание:
+1. Вывести данные из файла json, а именно id, name, age, gender, balance, email, phone, isActive. 
+2. Отсортировать полученные данные по полю isActive, записать полученный результат в файл result.txt. 
+3. Осортировать по возрастанию balance только активных пользователей, записать полученный результат в файл result.txt. 
+4. Опубликовать работу на гитхаб. Репозиторий: https://github.com/LessonsTop/practic-1 в ветки practic_FI (Где FI - фамилия и имя).
+
+
+import json
+
+jsonDocument = 'generated.json'
+
+f = open(jsonDocument, 'r')
+jsonData = json.load(f)
+f.close()
+
+UserList = []
+for x in jsonData:
+    print("User id: ", x['_id'])
+    print("User name: ", x["name"])
+    print("User age: ", x["age"])
+    print("User gender: ", x["gender"])
+    print("User balance: ", x["balance"])
+    print("User email: ", x["email"])
+    print("User phone: ", x["phone"])
+    print("User isActive: ", x["isActive"])
+    print("*" * 30)
+    information = {
+
+        "_id": x['_id'],
+        "name": x["name"],
+        "age": x["age"],
+        "gender": ["gender"],
+        "balance": x["balance"],
+        "email": x["email"],
+        "phone": x["phone"],
+        "isActive": x["isActive"]
+
+    }
+
+    UserList.append(information)
+
+
+
+f = open('result.txt', 'w')
+UserList.sort(key=lambda row: row["isActive"])
+text = str(UserList)
+f.write(text)
+f.close()
+print(UserList)
+
+
+f = open('result1.txt', 'w')
+
+ListUserTrue = list(filter(lambda row: row["isActive"] == True, UserList))
+
+ListUserTrue.sort(key=lambda row: row['balance'], reverse=True)
+
+text = str(UserList)
+f.write(text)
+f.close()
+print(UserList)
+for x in ListUserTrue:
+    print(x)
