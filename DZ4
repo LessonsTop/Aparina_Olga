@@ -1,0 +1,47 @@
+1. Создать файл с текстом, а затем написать программу которая будет считывать текст из файла выбирая только нужные слова и поместить данные слова в отдельный документ
+
+text = "Обрывки мыслей, образов, воспоминаний. Желтый цвет листьев, волос. Краски бледнее и ярче. Люди, машины, города. "
+lis = open("Text.txt", "w")
+lis.write(text)
+lis.close()
+
+lis = open("Text.txt", "r")
+word = text.split('. ')
+i = word[2]
+
+lis1 = open("Text1.txt", "w")
+lis1.write(i)
+lis1.close()
+
+
+2.  Закрепить работу с json файлами, создать простенький json файл и затем его прочитать. 
+
+import json
+data = {}
+data['people'] = []
+data['people'].append({
+    'name': 'Mikhail',
+    'website': 'mail.ru',
+    'from': 'Omsk'
+})
+data['people'].append({
+    'name': 'Alexei',
+    'website': 'yandex.ru',
+    'from': 'Tomsk'
+})
+data['people'].append({
+    'name': 'Dima',
+    'website': 'google.ru',
+    'from': 'Tyumen'
+})
+with open('data.txt', 'w') as outfile:
+    json.dump(data, outfile)
+    
+
+with open('data.txt') as json_file:
+    data = json.load(json_file)
+    for p in data['people']:
+        print('Name: ' + p['name'])
+        print('Website: ' + p['website'])
+        print('From: ' + p['from'])
+        print('')
